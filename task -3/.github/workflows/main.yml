@@ -15,6 +15,7 @@ env:
   DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
   BACKEND_IMAGE: ${{ secrets.DOCKER_USERNAME }}/fullstack-backend
   FRONTEND_IMAGE: ${{ secrets.DOCKER_USERNAME }}/fullstack-frontend
+  PROJECT_ROOT: "task -3"
 
 jobs:
   # Backend Testing and Linting
@@ -31,17 +32,17 @@ jobs:
         with:
           python-version: "3.11"
           cache: "pip"
-          cache-dependency-path: backend/requirements.txt
+          cache-dependency-path: ${{ env.PROJECT_ROOT }}/backend/requirements.txt
 
       - name: Install dependencies
-        working-directory: ./backend
+        working-directory: ${{ env.PROJECT_ROOT }}/backend
         run: |
           python -m pip install --upgrade pip
           pip install -r requirements.txt
           pip install flake8 pytest pytest-cov
 
       - name: Lint with flake8
-        working-directory: ./backend
+        working-directory: ${{ env.PROJECT_ROOT }}/backend
         run: |
           # Stop the build if there are Python syntax errors or undefined names
           flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
@@ -49,7 +50,7 @@ jobs:
           flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
 
       - name: Run tests
-        working-directory: ./backend
+        working-directory: ${{ env.PROJECT_ROOT }}/backend
         run: |
           # Add tests here when available
           echo "No tests defined yet"
@@ -68,31 +69,31 @@ jobs:
         with:
           node-version: "18"
           cache: "npm"
-          cache-dependency-path: frontend/package-lock.json
+          cache-dependency-path: ${{ env.PROJECT_ROOT }}/frontend/package-lock.json
 
       - name: Install dependencies
-        working-directory: ./frontend
+        working-directory: ${{ env.PROJECT_ROOT }}/frontend
         run: npm ci
 
       - name: Run ESLint
-        working-directory: ./frontend
+        working-directory: ${{ env.PROJECT_ROOT }}/frontend
         run: npm run lint
 
       - name: Run tests
-        working-directory: ./frontend
+        working-directory: ${{ env.PROJECT_ROOT }}/frontend
         run: |
           # Add tests here when available
           echo "No tests defined yet"
 
       - name: Build frontend
-        working-directory: ./frontend
+        working-directory: ${{ env.PROJECT_ROOT }}/frontend
         run: npm run build
 
       - name: Upload build artifacts
         uses: actions/upload-artifact@v4
         with:
           name: frontend-build
-          path: frontend/dist
+          path: ${{ env.PROJECT_ROOT }}/frontend/dist
           retention-days: 1
 
   # Build Docker Images
@@ -128,8 +129,8 @@ jobs:
       - name: Build and push Backend image
         uses: docker/build-push-action@v5
         with:
-          context: ./backend
-          file: ./backend/Dockerfile
+          context: ${{ env.PROJECT_ROOT }}/backend
+          file: ${{ env.PROJECT_ROOT }}/backend/Dockerfile
           push: true
           tags: ${{ steps.meta-backend.outputs.tags }}
           labels: ${{ steps.meta-backend.outputs.labels }}
@@ -149,8 +150,8 @@ jobs:
       - name: Build and push Frontend image
         uses: docker/build-push-action@v5
         with:
-          context: ./frontend
-          file: ./frontend/Dockerfile
+          context: ${{ env.PROJECT_ROOT }}/frontend
+          file: ${{ env.PROJECT_ROOT }}/frontend/Dockerfile
           push: true
           tags: ${{ steps.meta-frontend.outputs.tags }}
           labels: ${{ steps.meta-frontend.outputs.labels }}
