@@ -1,7 +1,7 @@
 import axios from 'axios';
 
-// API base URL - use environment variable or default to localhost
-const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5001/api/todos';
+// API base URL - use environment variable or default to relative path for deployment
+const API_URL = import.meta.env.VITE_API_URL || '/api/todos';
 
 /**
  * API Service for Todo operations
