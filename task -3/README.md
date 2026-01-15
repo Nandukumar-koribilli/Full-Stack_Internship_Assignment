@@ -75,7 +75,7 @@ VITE_API_URL=http://localhost:5000/api
 ```
 
 **Step 3: Run the App!**
-Run this single command to start everything:
+Run this single command to start everything and before that Make sure the docker Application is running in your desktop :
 
 ```bash
 docker-compose up -d
