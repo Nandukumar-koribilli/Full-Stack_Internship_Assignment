@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Beautiful, full-featured weather application with real-time data, forecasts, air quality, and more"
+    />
+    <meta
+      name="keywords"
+      content="weather, forecast, air quality, UV index, weather app"
+    />
+    <title>WeatherNow - Your Premium Weather Companion</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Leaflet for maps -->
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    />
+
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <!-- Header -->
+    <header class="header">
+      <div class="container">
+        <div class="header-content">
+          <h1 class="logo">
+            <span class="weather-icon">🌤️</span>
+            WeatherNow
+          </h1>
+
+          <div class="header-actions">
+            <button id="themeToggle" class="btn-icon" aria-label="Toggle theme">
+              <span class="theme-icon">🌙</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main">
+      <div class="container">
+        <!-- World Map Section -->
+        <section class="map-section">
+          <div class="map-header">
+            <h2 class="map-title">🌍 Select Location on Map</h2>
+            <p class="map-subtitle">
+              Click anywhere on the world map to view weather for that location
+            </p>
+          </div>
+          <div id="worldMap" class="world-map-container"></div>
+        </section>
+
+        <!-- Search Section -->
+        <section class="search-section">
+          <div class="search-container">
+            <input
+              type="text"
+              id="locationSearch"
+              class="search-input"
+              placeholder="Search for a city..."
+              autocomplete="off"
+            />
+            <button id="searchBtn" class="search-btn">
+              <span>🔍</span>
+            </button>
+            <button
+              id="locationBtn"
+              class="btn-icon location-btn"
+              aria-label="Use my location"
+            >
+              <span>📍</span>
+            </button>
+          </div>
+          <div id="searchResults" class="search-results"></div>
+        </section>
+
+        <!-- Current Weather -->
+        <section id="currentWeather" class="current-weather">
+          <div class="loading-spinner"></div>
+        </section>
+
+        <!-- Weather Details Grid -->
+        <section class="weather-grid">
+          <!-- Hourly Forecast -->
+          <div id="hourlyForecast" class="card">
+            <h2 class="card-title">24-Hour Forecast</h2>
+            <div class="card-content">
+              <div class="loading-spinner"></div>
+            </div>
+          </div>
+
+          <!-- Air Quality -->
+          <div id="airQuality" class="card">
+            <h2 class="card-title">Air Quality</h2>
+            <div class="card-content">
+              <div class="loading-spinner"></div>
+            </div>
+          </div>
+
+          <!-- Weather Details -->
+          <div id="weatherDetails" class="card card-wide">
+            <h2 class="card-title">Weather Details</h2>
+            <div class="card-content">
+              <div class="loading-spinner"></div>
+            </div>
+          </div>
+        </section>
+
+        <!-- 7-Day Forecast -->
+        <section id="weeklyForecast" class="forecast-section">
+          <h2 class="section-title">7-Day Forecast</h2>
+          <div class="forecast-container">
+            <div class="loading-spinner"></div>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <p>OpenWeatherMap API</p>
+      </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="js/utils/formatters.js"></script>
+    <script src="js/utils/weatherIcons.js"></script>
+    <script src="js/api.js"></script>
+    <script src="js/components/WorldMap.js"></script>
+    <script src="js/components/CurrentWeather.js"></script>
+    <script src="js/components/HourlyForecast.js"></script>
+    <script src="js/components/Forecast.js"></script>
+    <script src="js/components/AirQuality.js"></script>
+    <script src="js/components/WeatherDetails.js"></script>
+    <script src="js/app.js"></script>
+  </body>
+</html>

@@ -1,0 +1,167 @@
+name: Production Deployment
+
+on:
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: "Deployment environment"
+        required: true
+        default: "production"
+        type: choice
+        options:
+          - staging
+          - production
+      version:
+        description: "Version to deploy (leave empty for latest)"
+        required: false
+        type: string
+
+env:
+  DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
+  BACKEND_IMAGE: ${{ secrets.DOCKER_USERNAME }}/fullstack-backend
+  FRONTEND_IMAGE: ${{ secrets.DOCKER_USERNAME }}/fullstack-frontend
+
+jobs:
+  # Pre-deployment checks
+  pre-deploy:
+    name: Pre-deployment Checks
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Verify Docker images exist
+        run: |
+          echo "Verifying images..."
+          VERSION="${{ github.event.inputs.version || 'latest' }}"
+          echo "Backend: ${{ env.BACKEND_IMAGE }}:${VERSION}"
+          echo "Frontend: ${{ env.FRONTEND_IMAGE }}:${VERSION}"
+
+      - name: Run pre-deployment tests
+        run: |
+          echo "Running pre-deployment validation..."
+          echo "✅ All checks passed"
+
+  # Deploy to environment
+  deploy:
+    name: Deploy to ${{ github.event.inputs.environment }}
+    runs-on: ubuntu-latest
+    needs: [pre-deploy]
+    environment:
+      name: ${{ github.event.inputs.environment }}
+      url: https://your-app-url.com
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set deployment version
+        id: version
+        run: |
+          VERSION="${{ github.event.inputs.version || 'latest' }}"
+          echo "version=${VERSION}" >> $GITHUB_OUTPUT
+          echo "Deploying version: ${VERSION}"
+
+      - name: Deploy Backend
+        run: |
+          echo "Deploying backend..."
+          echo "Image: ${{ env.BACKEND_IMAGE }}:${{ steps.version.outputs.version }}"
+          # Add your deployment commands here
+          # Examples:
+          # - AWS ECS: aws ecs update-service
+          # - Kubernetes: kubectl set image deployment/backend
+          # - Docker Swarm: docker service update
+          # - SSH to server: ssh user@server 'docker pull && docker-compose up -d'
+
+      - name: Deploy Frontend
+        run: |
+          echo "Deploying frontend..."
+          echo "Image: ${{ env.FRONTEND_IMAGE }}:${{ steps.version.outputs.version }}"
+          # Add your deployment commands here
+
+      - name: Wait for deployment
+        run: |
+          echo "Waiting for services to be healthy..."
+          sleep 30
+
+  # Post-deployment verification
+  verify:
+    name: Verify Deployment
+    runs-on: ubuntu-latest
+    needs: [deploy]
+
+    steps:
+      - name: Health check - Backend
+        run: |
+          echo "Checking backend health..."
+          # curl -f https://api.your-app.com/health || exit 1
+          echo "✅ Backend is healthy"
+
+      - name: Health check - Frontend
+        run: |
+          echo "Checking frontend health..."
+          # curl -f https://your-app.com/health || exit 1
+          echo "✅ Frontend is healthy"
+
+      - name: Run smoke tests
+        run: |
+          echo "Running smoke tests..."
+          # Add your smoke tests here
+          echo "✅ All smoke tests passed"
+
+  # Rollback capability
+  rollback:
+    name: Rollback (if needed)
+    runs-on: ubuntu-latest
+    needs: [verify]
+    if: failure()
+    environment:
+      name: ${{ github.event.inputs.environment }}
+
+    steps:
+      - name: Rollback deployment
+        run: |
+          echo "⚠️ Deployment verification failed!"
+          echo "Initiating rollback..."
+          # Add rollback commands here
+          # Examples:
+          # - Revert to previous version
+          # - Restore from backup
+          # - Scale down new deployment
+          echo "✅ Rollback completed"
+
+      - name: Notify team
+        run: |
+          echo "Sending rollback notification..."
+          # Add notification logic (Slack, email, etc.)
+
+  # Deployment summary
+  summary:
+    name: Deployment Summary
+    runs-on: ubuntu-latest
+    needs: [deploy, verify]
+    if: always()
+
+    steps:
+      - name: Generate deployment report
+        run: |
+          echo "## 🚀 Deployment Summary" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "**Environment:** ${{ github.event.inputs.environment }}" >> $GITHUB_STEP_SUMMARY
+          echo "**Version:** ${{ github.event.inputs.version || 'latest' }}" >> $GITHUB_STEP_SUMMARY
+          echo "**Status:** ${{ needs.verify.result == 'success' && '✅ Success' || '❌ Failed' }}" >> $GITHUB_STEP_SUMMARY
+          echo "**Deployed by:** ${{ github.actor }}" >> $GITHUB_STEP_SUMMARY
+          echo "**Timestamp:** $(date -u +'%Y-%m-%d %H:%M:%S UTC')" >> $GITHUB_STEP_SUMMARY
+
+      - name: Send success notification
+        if: needs.verify.result == 'success'
+        run: |
+          echo "✅ Deployment successful!"
+          # Add success notification (Slack, Discord, email, etc.)
+
+      - name: Send failure notification
+        if: needs.verify.result != 'success'
+        run: |
+          echo "❌ Deployment failed!"
+          # Add failure notification

@@ -1,0 +1,24 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "task-1_TODO/client/package.json",
+      "use": "@vercel/static-build",
+      "options": { "installCommand": "npm install", "buildCommand": "npm run build" }
+    },
+    {
+      "src": "task-1_TODO/server/express-server.js",
+      "use": "@vercel/node"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/api/(.*)",
+      "dest": "task-1_TODO/server/express-server.js"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "task-1_TODO/client/$1"
+    }
+  ]
+}
