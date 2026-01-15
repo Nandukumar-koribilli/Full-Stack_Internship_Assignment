@@ -7,7 +7,7 @@ This repository contains my complete submission for the Full-Stack Web Developme
 The assignment is organized into four folders, each corresponding to a specific task:
 
 - **[`/task-1_TODO`](./task-1_TODO)**: Full-Stack Web Application (CRUD)
-- **[`/task-2_Weather App/`](./task-2_Weather App/)**: Third-Party API Integration (Weather App)
+- **[`/task-2_Weather App/`](./task-2_Weather%20App/)**: Third-Party API Integration (Weather App)
 - **[`/task-3_Docker/`](./task-3_Docker/)**: Deployment Pipeline (Docker & CI/CD)
 - **[`/task-4_Redux/`](./task-4_Redux/)**: State Management (Redux E-Commerce)
 
@@ -38,7 +38,7 @@ The assignment is organized into four folders, each corresponding to a specific 
   - **Frontend**: Displays real-time weather data, 5-day forecast, and air quality.
   - **Backend**: Secure proxy server to handle API keys and requests.
   - **Design**: Premium Glassmorphism UI.
-- **Documentation**: See [`task-2_Weather App/README.md`](./task-2_Weather App/README.md) for API configuration.
+- **Documentation**: See [`task-2_Weather App/README.md`](./task-2_Weather%20App/README.md) for API configuration.
 
 ---
 
