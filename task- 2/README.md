@@ -1,197 +1,109 @@
-# Weather Application
+# Weather Application - Task 2 Integration
 
-A stunning, full-featured weather application that integrates with OpenWeatherMap API to provide comprehensive weather data, forecasts, air quality information, and beautiful visualizations.
+A fully functional, premium weather application built to satisfy the **"Integrate a Third-Party API"** internship task. This project successfully integrates the OpenWeatherMap API with a dedicated backend and a responsive frontend.
 
-![Weather App](https://img.shields.io/badge/Status-Complete-success)
+![Status](https://img.shields.io/badge/Status-Complete-success)
 ![API](https://img.shields.io/badge/API-OpenWeatherMap-blue)
-![License](https://img.shields.io/badge/License-MIT-green)
 
-## 🌟 Features
+## ✅ Task Fulfillment Checklist
 
-### Core Weather Features
+This project covers all requirements specified in **Task 2**:
 
-- **Current Weather**: Real-time weather data with temperature, conditions, humidity, pressure, visibility, and wind
-- **7-Day Forecast**: Daily weather predictions with high/low temperatures and precipitation probability
-- **24-Hour Forecast**: Hourly temperature and precipitation chart for the next 24 hours
-- **Air Quality Index**: Comprehensive AQI with pollutant breakdown (PM2.5, PM10, O₃, NO₂, SO₂, CO)
-- **Weather Details**:
-  - UV Index with protection recommendations
-  - Sunrise/Sunset times
-  - Animated wind compass with direction and speed
-  - Cloud cover visualization
+1.  **Backend Integration** ✅
 
-### User Experience
+    - Created robust endpoints in `server.js` (`/api/weather/current`, `/api/weather/forecast`) to act as a secure gateway.
+    - Utilized **Axios** to make server-side HTTP requests to the OpenWeatherMap API.
 
-- **Premium UI/UX**: Glassmorphism design with smooth gradients and animations
-- **Dark/Light Mode**: Toggle between themes with persistent preference
-- **Weather-Based Backgrounds**: Dynamic gradient backgrounds that change based on weather conditions
-- **Responsive Design**: Optimized for desktop, tablet, and mobile devices
-- **Location Features**:
-  - Automatic geolocation detection
-  - City search with autocomplete suggestions
-  - Support for worldwide locations
+2.  **Frontend Implementation** ✅
 
-### Technical Features
+    - Developed specific components (`CurrentWeather.js`, `Forecast.js`, `AirQuality.js`) to display data.
+    - Used **Fetch API** to retrieve data from our backend endpoints.
+    - Implemented a "Glassmorphism" design for a modern, premium look.
 
-- **Smart Caching**: 5-minute cache to reduce API calls and improve performance
-- **Error Handling**: Comprehensive error handling with user-friendly messages
-- **Interactive Charts**: Chart.js visualizations for hourly forecast data
-- **Component Architecture**: Modular, reusable component structure
-
-## 🚀 Technology Stack
-
-### Backend
-
-- **Node.js + Express**: RESTful API server
-- **Axios**: HTTP client for external API calls
-- **Node-Cache**: In-memory caching system
-- **CORS**: Cross-origin resource sharing
-- **dotenv**: Environment variable management
-
-### Frontend
-
-- **Vanilla JavaScript**: Pure JS for maximum performance
-- **HTML5**: Semantic markup with SEO optimization
-- **CSS3**: Modern CSS with custom properties, glassmorphism, and animations
-- **Chart.js**: Interactive data visualizations
-- **Google Fonts**: Inter and Outfit typography
-
-### API
-
-- **OpenWeatherMap API**:
-  - Current Weather Data API
-  - 5-Day/3-Hour Forecast API
-  - Air Pollution API
-  - Geocoding API
-
-## 📦 Installation
-
-### Prerequisites
-
-- Node.js (v14 or higher)
-- npm or yarn
-- OpenWeatherMap API key (free tier available)
-
-### Setup Steps
-
-1. **Clone or navigate to the project directory**
-
-   ```bash
-   cd "full stack task 2"
-   ```
-
-2. **Install dependencies**
-
-   ```bash
-   npm install
-   ```
-
-3. **Configure API Key**
-
-   The `.env` file is already configured with your API key. If you need to change it:
-
-   ```
-   OPENWEATHER_API_KEY=your_api_key_here
-   PORT=3000
-   ```
-
-4. **Start the server**
-
-   ```bash
-   npm run dev
-   ```
-
-   Or for production:
-
-   ```bash
-   npm start
-   ```
-
-5. **Open in browser**
-   ```
-   http://localhost:3000
-   ```
-
-## 📁 Project Structure
-
-```
-full stack task 2/
-├── server.js                 # Express server with API endpoints
-├── package.json             # Dependencies and scripts
-├── .env                     # Environment variables (API key)
-├── .env.example            # Example environment file
-├── .gitignore              # Git ignore rules
-├── README.md               # This file
-│
-└── public/                 # Frontend files
-    ├── index.html         # Main HTML file
-    │
-    ├── css/
-    │   └── styles.css     # Complete design system
-    │
-    ├── js/
-    │   ├── app.js         # Main application controller
-    │   ├── api.js         # API service layer
-    │   │
-    │   ├── components/    # UI Components
-    │   │   ├── CurrentWeather.js
-    │   │   ├── HourlyForecast.js
-    │   │   ├── Forecast.js
-    │   │   ├── AirQuality.js
-    │   │   └── WeatherDetails.js
-    │   │
-    │   └── utils/         # Utility functions
-    │       ├── formatters.js
-    │       └── weatherIcons.js
-    │
-    └── assets/            # Static assets (if needed)
-```
-
-## 🎨 Design Philosophy
-
-This application follows modern web design principles:
-
-- **Glassmorphism**: Semi-transparent cards with backdrop blur
-- **Gradient Accents**: No generic colors - curated HSL palette
-- **Micro-animations**: Smooth transitions and hover effects
-- **Premium Typography**: Professional font pairing (Inter + Outfit)
-- **Responsive Grid**: Adaptive layouts for all screen sizes
-- **Dark Mode Support**: Complete theme system with CSS custom properties
-
-## 🔧 API Endpoints
-
-### Backend Endpoints
-
-- `GET /api/weather/current?lat={lat}&lon={lon}` - Current weather
-- `GET /api/weather/forecast?lat={lat}&lon={lon}` - 5-day forecast
-- `GET /api/weather/air-quality?lat={lat}&lon={lon}` - Air quality data
-- `GET /api/geocode/search?q={city}` - Search locations
-- `GET /api/geocode/reverse?lat={lat}&lon={lon}` - Reverse geocode
-- `GET /api/health` - Server health check
-
-## 🎯 Key Differentiators
-
-This weather app stands out with:
-
-1. **Comprehensive Data**: 10+ weather metrics beyond basic temperature
-2. **Premium Design**: Glassmorphism and gradient-based UI that looks expensive
-3. **Smart Features**: Caching, geolocation, search suggestions
-4. **Advanced Visualizations**: Charts, gauges, wind compass, UV meter
-5. **Professional Architecture**: Clean separation of concerns, modular components
-6. **Performance Optimized**: Efficient caching and parallel API calls
-
-
-## 👨‍💻 Development
-
-Built as an intern project to demonstrate full-stack development skills including:
-
-- RESTful API design
-- Third-party API integration
-- Modern frontend development
-- Responsive UI design
-- Component architecture
-- Error handling and caching strategies
+3.  **API Integration** ✅
+    - Fully integrated **OpenWeatherMap** for Real-time Weather, 5-Day Forecasts, and Air Quality Index (AQI).
 
 ---
 
-** made with OpenWeatherMap API** 
+## � Project Screenshots
+
+### Main Dashboard
+
+Current weather conditions, air quality, and dynamic background.
+![Weather Dashboard](images/weather%201.png)
+
+### 7-Day Forecast
+
+Detailed forecast view with daily high/low temperatures.
+![Forecast View](images/weather%202.png)
+
+### Search & Details
+
+City search functionality and detailed weather metrics available worldwide.
+![Details View](images/weather%203.png)
+
+---
+
+## � How to Install & Run
+
+Follow these simple steps to get the app running on your machine.
+
+### 1. Install Dependencies
+
+Open your terminal in the project folder and run:
+
+```bash
+npm install
+```
+
+### 2. Configure API Key
+
+The `.env` file is **already included** in the project directory, so you do **not** need to create it.
+
+It comes pre-configured. However, if you want to use your own OpenWeatherMap API key, simply open the `.env` file and update it:
+
+````env
+OPENWEATHER_API_KEY=your_api_key_here
+PORT=3000
+```_
+
+### 3. Start the Application
+
+Run the development server:
+
+```bash
+npm run dev
+````
+
+### 4. Open in Browser
+
+Visit the following URL to see the app:
+
+```
+http://localhost:3000
+```
+
+---
+
+## � Key Files Structure
+
+We kept the project structure clean and modular:
+
+- **`server.js`**: The backend server that handles API calls (Task Requirement).
+- **`public/index.html`**: The main entry point for the frontend.
+- **`public/js/app.js`**: Main logic controller.
+- **`public/js/api.js`**: Handles all `fetch` requests to the backend.
+- **`public/js/components/`**:
+  - `CurrentWeather.js`: component for current data.
+  - `Forecast.js`: component for future data.
+
+---
+
+## 🛠️ Technologies Used
+
+- **Frontend**: HTML5, CSS3 (Glassmorphism), JavaScript (Vanilla)
+- **Backend**: Node.js, Express.js
+- **API**: OpenWeatherMap
+- **Tools**: Axios, Dotenv, Node-Cache
+
+**Made for Full Stack Internship - Task 2**
