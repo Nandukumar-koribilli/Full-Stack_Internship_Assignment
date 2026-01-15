@@ -61,7 +61,7 @@ Open your terminal or command prompt and run:
 
 ```bash
 git clone https://github.com/YOUR_USERNAME/YOUR_REPO.git
-cd YOUR_REPO/task\ -3
+cd YOUR_REPO/task\ -3\ (Docker)/
 ```
 
 **Step 2: Configure Environment**

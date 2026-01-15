@@ -97,7 +97,7 @@ MongoDB Atlas (Cloud Database)
 ### Step 1: Navigate to Project
 
 ```bash
-cd "c:\Users\nandu\OneDrive\Desktop\full stack inten\task 3"
+cd "c:\Users\nandu\OneDrive\Desktop\full stack inten\task -3 (Docker)"
 ```
 
 ### Step 2: Verify Project Structure
@@ -216,7 +216,7 @@ docker login
 
 ```bash
 # Navigate to project root
-cd "c:\Users\nandu\OneDrive\Desktop\full stack inten\task 3"
+cd "c:\Users\nandu\OneDrive\Desktop\full stack inten\task -3 (Docker)"
 
 # Start all services
 docker-compose up -d
@@ -254,7 +254,7 @@ docker-compose down
 
 ```bash
 # Navigate to project
-cd "c:\Users\nandu\OneDrive\Desktop\full stack inten\task 3"
+cd "c:\Users\nandu\OneDrive\Desktop\full stack inten\task -3 (Docker)"
 
 # Initialize git
 git init

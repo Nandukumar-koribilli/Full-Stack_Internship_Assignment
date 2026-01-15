@@ -6,10 +6,10 @@ This repository contains my complete submission for the Full-Stack Web Developme
 
 The assignment is organized into four folders, each corresponding to a specific task:
 
-- **[`/task-1`](./task-1)**: Full-Stack Web Application (CRUD)
-- **[`/task-2`](./task-2)**: Third-Party API Integration (Weather App)
-- **[`/task-3`](./task-3)**: Deployment Pipeline (Docker & CI/CD)
-- **[`/task-4`](./task-4)**: State Management (Redux E-Commerce)
+- **[`/task - 1 (TODO_CRUD )`](./task - 1 (TODO_CRUD ))**: Full-Stack Web Application (CRUD)
+- **[`/task - 2 (Weather App)/`](./task - 2 (Weather App)/)**: Third-Party API Integration (Weather App)
+- **[`/task -3 (Docker)/`](./task -3 (Docker)/)**: Deployment Pipeline (Docker & CI/CD)
+- **[`/task-4 (Redux)/`](./task-4 (Redux)/)**: State Management (Redux E-Commerce)
 
 ---
 
@@ -24,7 +24,7 @@ The assignment is organized into four folders, each corresponding to a specific 
   - Responsive React frontend.
   - Full CRUD functionality for item management.
   - Deployable on Vercel/Heroku.
-- **Documentation**: See [`task-1/README.md`](./task-1/README.md) for setup and details.
+- **Documentation**: See [`task - 1 (TODO_CRUD )/README.md`](./task - 1 (TODO_CRUD )/README.md) for setup and details.
 
 ---
 
@@ -38,7 +38,7 @@ The assignment is organized into four folders, each corresponding to a specific 
   - **Frontend**: Displays real-time weather data, 5-day forecast, and air quality.
   - **Backend**: Secure proxy server to handle API keys and requests.
   - **Design**: Premium Glassmorphism UI.
-- **Documentation**: See [`task-2/README.md`](./task-2/README.md) for API configuration.
+- **Documentation**: See [`task - 2 (Weather App)/README.md`](./task - 2 (Weather App)/README.md) for API configuration.
 
 ---
 
@@ -52,7 +52,7 @@ The assignment is organized into four folders, each corresponding to a specific 
   - **Docker Control**: Dockerfiles for both Client and Server.
   - **CI/CD**: GitHub Actions workflow (`.github/workflows`) to automate building and testing.
   - **Orchestration**: `docker-compose.yml` for running the entire stack locally with one command.
-- **Documentation**: See [`task-3/README.md`](./task-3/README.md) for deployment steps.
+- **Documentation**: See [`task -3 (Docker)/README.md`](./task -3 (Docker)/README.md) for deployment steps.
 
 ---
 
@@ -66,7 +66,7 @@ The assignment is organized into four folders, each corresponding to a specific 
   - **Global Store**: Centralized state management for Authentication, Cart, and Products.
   - **Authentication**: JWT-based login/register flow managed via Redux.
   - **Shopping Cart**: Add to cart, remove items, and update quantities using Redux actions/reducers.
-- **Documentation**: See [`task-4/README.md`](./task-4/README.md) for implementation details.
+- **Documentation**: See [`task-4 (Redux)/README.md`](./task-4 (Redux)/README.md) for implementation details.
 
 ---
 
@@ -86,7 +86,7 @@ To view any specific task, navigate to the respective directory and follow the i
 2.  **Navigate to a Task**
 
     ```bash
-    cd task-4  # Example: To run the Redux application
+    cd task-4 (Redux)/  # Example: To run the Redux application
     ```
 
 3.  **Install Dependencies**

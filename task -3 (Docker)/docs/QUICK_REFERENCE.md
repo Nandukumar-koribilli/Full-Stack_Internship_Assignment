@@ -290,7 +290,7 @@ chmod +x health-check.sh
 ## Project Structure Summary
 
 ```
-task 3/
+task -3 (Docker)/
 ├── .github/workflows/     # CI/CD pipelines
 ├── backend/               # Python Flask API
 ├── frontend/              # React application
