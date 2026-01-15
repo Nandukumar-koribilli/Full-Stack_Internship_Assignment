@@ -6,7 +6,7 @@ This repository contains my complete submission for the Full-Stack Web Developme
 
 The assignment is organized into four folders, each corresponding to a specific task:
 
-- **[`/task - 1 (TODO_CRUD )`](./task - 1 (TODO_CRUD ))**: Full-Stack Web Application (CRUD)
+- **[`/task-1-TODO_CRUD`](./task-1-TODO_CRUD)**: Full-Stack Web Application (CRUD)
 - **[`/task - 2 (Weather App)/`](./task - 2 (Weather App)/)**: Third-Party API Integration (Weather App)
 - **[`/task -3 (Docker)/`](./task -3 (Docker)/)**: Deployment Pipeline (Docker & CI/CD)
 - **[`/task-4 (Redux)/`](./task-4 (Redux)/)**: State Management (Redux E-Commerce)
@@ -24,7 +24,7 @@ The assignment is organized into four folders, each corresponding to a specific 
   - Responsive React frontend.
   - Full CRUD functionality for item management.
   - Deployable on Vercel/Heroku.
-- **Documentation**: See [`task - 1 (TODO_CRUD )/README.md`](./task - 1 (TODO_CRUD )/README.md) for setup and details.
+- **Documentation**: See [`task-1-TODO_CRUD/README.md`](./task-1-TODO_CRUD/README.md) for setup and details.
 
 ---
 
