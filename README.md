@@ -74,6 +74,8 @@ The assignment is organized into four folders, each corresponding to a specific 
 
 To view any specific task, navigate to the respective directory and follow the internal `README.md`.
 
+> **Note**: For your convenience, the `.env` configuration files (API keys, MongoDB URIs) are **already included** in the project folders. You do not need to create or configure them manually.
+
 **General Quick Start:**
 
 1.  **Clone the Repository**
