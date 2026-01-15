@@ -15,7 +15,7 @@ env:
   DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
   BACKEND_IMAGE: ${{ secrets.DOCKER_USERNAME }}/fullstack-backend
   FRONTEND_IMAGE: ${{ secrets.DOCKER_USERNAME }}/fullstack-frontend
-  PROJECT_ROOT: "task -3 (Docker)"
+  PROJECT_ROOT: "task-3_Docker"
 
 jobs:
   # Backend Testing and Linting
