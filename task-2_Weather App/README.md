@@ -58,9 +58,9 @@ npm install
 
 ### 2. Configure API Key
 
-The `.env` file is **already included** in the project directory, so you do **not** need to create it.
+The `.env` file is **not included** in the project directory for security.
 
-It comes pre-configured. However, if you want to use your own OpenWeatherMap API key, simply open the `.env` file and update it:
+Please download the `.env` file from the submission email and place it in the root of this task folder.
 
 ````env
 OPENWEATHER_API_KEY=your_api_key_here

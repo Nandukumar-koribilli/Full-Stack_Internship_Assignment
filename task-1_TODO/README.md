@@ -63,7 +63,7 @@ cd server
 npm install
 ```
 
-The `.env` file is already included in the `server` directory with the necessary configuration. You can verify it contains:
+The `.env` file is NOT included in the repository for security. Please download the `.env` file shared in the submission email, place it in the `server` directory, and verify it contains:
 
 ```env
 MONGODB_URI=...

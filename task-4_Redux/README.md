@@ -37,7 +37,7 @@ cd ..
 ```
 
 **2. Setup Environment**
-The backend is pre-configured for demonstration. Check `server/.env` if you need to change ports or database credentials.
+The `.env` file is not included for security. Please place the `.env` file from the submission email into the `server/` directory. Check `server/.env` to ensure it matches your configuration.
 
 **3. Run the Application**
 Open **two** terminal windows:

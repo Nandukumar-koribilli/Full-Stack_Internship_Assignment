@@ -65,7 +65,7 @@ cd YOUR_REPO/task-3_Docker/
 ```
 
 **Step 2: Configure Environment**
-Create a `.env` file in the root directory and add:
+Create a `.env` file in the root directory using the content provided in the submission email. It should contain:
 
 ```env
 MONGO_ROOT_USERNAME=admin
